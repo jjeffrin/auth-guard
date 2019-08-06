@@ -12,6 +12,10 @@ export class AuthService {
     private firebaseAuth: AngularFireAuth
   ) { }
 
+  currentUser() {
+    return this.firebaseAuth.auth.currentUser;
+  }
+
   isUserSessionFound() {
     return this.firebaseAuth.authState;
   }

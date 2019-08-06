@@ -18,7 +18,13 @@ export class UserAuthComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    console.log(this.loading);
+    this.authService.isUserSessionFound().subscribe(
+      (user) => {
+        if (user) {
+          this.router.navigate(['/user-profile']);
+        }
+      }
+    );
   }
 
   signIn() {     

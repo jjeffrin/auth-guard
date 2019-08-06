@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { AuthService } from './services/auth.service';
     AngularFirestoreModule,
     FormsModule
   ],
-  providers: [AuthService, AngularFireAuth],
+  providers: [AuthService, AngularFireAuth, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
