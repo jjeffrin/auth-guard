@@ -11,6 +11,8 @@ export class UserAuthComponent implements OnInit {
   loading: boolean = false;
   emailLogin: string;
   passwordLogin: string;
+  emailReg: string;
+  passwordReg: string;
 
   constructor(
     private authService: AuthService,
@@ -40,4 +42,28 @@ export class UserAuthComponent implements OnInit {
     )     
   }
 
+  signUp() {
+    this.loading = true;
+    this.authService.signUp(this.emailReg, this.passwordReg).then(
+      () => {
+        this.router.navigate(['/user-profile']);
+      }
+    ).catch(
+      () => {
+        this.loading = false;
+      }
+    )
+  }
+
+  signInWithGoogle() {
+    this.authService.google().then(
+      () => {
+        this.router.navigate(['/user-profile']);
+      }
+    ).catch(
+      () => {
+        console.log("failed");
+      }
+    )
+  }
 }
