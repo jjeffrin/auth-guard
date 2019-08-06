@@ -8,12 +8,18 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UserProfileComponent implements OnInit {
   email: string;
+  dark: boolean;
+
   constructor(
     private authService: AuthService
   ) { }
 
   ngOnInit() {
     this.email = this.authService.currentUser().email;
+  }
+
+  toggleTheme() {
+    this.dark = !this.dark;
   }
 
 }
