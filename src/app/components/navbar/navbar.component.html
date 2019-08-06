@@ -1,6 +1,6 @@
 <div style="margin: 5px">
     <div class="form-group">
-        <div *ngIf="user; else noUserFound">
+        <div *ngIf="session; else noUserFound">
             <button class="btn btn-primary mr-2" routerLink="/user-profile">My Profile</button>            
             <button class="btn btn-primary" (click)="logout()">Logout</button>
         </div>
